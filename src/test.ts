@@ -42,12 +42,11 @@
 // function helloUser(user: string | string[]) {
 // 	if (Array.isArray(user)) {
 // 		console.log(user.join(', ') + 'Hi!');
-// 	} 
+// 	}
 // 	else {
 // 		console.log(user + 'Hi!');
 // 	}
 // };
-
 
 // type coord = {lat: number, long: number};
 
@@ -92,7 +91,7 @@
 // interfaces can be reassigned and merged
 // types not
 
-// const as = 'dffg'; 	// literal type 
+// const as = 'dffg'; 	// literal type
 // // as = 'dfg';
 
 // let bs: 'hi' = 'hi';
@@ -134,7 +133,6 @@
 // // union type
 // type newDirection = 'left' | 'right';
 
-
 // //enum compiles to a function in js
 // enum wowDirection {
 // 	Left,
@@ -163,7 +161,6 @@
 
 // let myDirection = Direction2.Up;
 
-
 // // Generics -------------------------------------------------
 // interface HasLength {
 // 	length: number;
@@ -177,7 +174,6 @@
 // }
 
 // log<string, number>('abc', [1]);
-
 
 // interface IUser {
 // 	name: string;
@@ -209,7 +205,7 @@
 // 	}
 
 // 	protected a = 5;
-	
+
 // };
 
 // const l = new Logger();
@@ -255,10 +251,9 @@
 // 	// res.status(201).send({success: true});
 // 	// res.status(404).end();
 // 	throw new Error('Error!!!');
-// }) 
+// })
 
 // app.use('/users', userRouter);
-
 
 // app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 // 	console.log(err.message);
@@ -268,9 +263,6 @@
 // app.listen(port, () => {
 // 	console.log(`Server is running at http://localhost:${port}`);
 // });
-
- 
-
 
 // app.all('/hello', (req, res,next) => {
 // 	console.log('All');
@@ -294,14 +286,13 @@
 // 	console.log(`Server is running at http://localhost:${port}`);
 // });
 
-
 // Decorators---------------------------------
 // function Component(id: number){
 // 	console.log('init component');
 // 	return (target: Function) => {
 // 		console.log('run component');
 // 		target.prototype.id = id;
-		
+
 // 	}
 // }
 // function Logger(){
@@ -310,7 +301,7 @@
 // 		console.log('run logger');
 // 	}
 // }
- 
+
 // function Method(target: Object, propertyKey: string, propertyDescriptor: PropertyDescriptor) {
 // 	console.log(propertyKey);
 // 	//const oldValue = propertyDescriptor.value;
@@ -329,7 +320,7 @@
 // 		console.log('Set!');
 // 		value = newValue;
 // 	}
- 
+
 // 	Object.defineProperty(target, propertyKey, {
 // 		get: getter,
 // 		set: setter
@@ -338,9 +329,8 @@
 
 // function Param(target: Object, propertyKey: string, index: number){
 // 	console.log(propertyKey, index);
-	
-// }
 
+// }
 
 // @Logger()
 // @Component(1)
@@ -390,49 +380,3 @@
 // 	constructor(@Inject('C') c:C) {}
 // 	@Prop prop: number;
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

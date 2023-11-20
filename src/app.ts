@@ -1,5 +1,5 @@
-import express, {Express} from 'express';
-import {Server} from 'http';
+import express, { Express } from 'express';
+import { Server } from 'http';
 import { LoggerService } from './logger/logger.service.js';
 import { UserController } from './users/users.controller.js';
 import { ExceptionFilter } from './errors/exception.filter.js';
@@ -18,20 +18,20 @@ export class App {
 		@inject(TYPES.ILogger) private logger: ILogger,
 		@inject(TYPES.UserController) private userController: UserController,
 		@inject(TYPES.ExceptionFilter) private exceptionFilter: ExceptionFilter,
-		) {
+	) {
 		this.app = express();
 		this.port = 8000;
-	};
+	}
 
-	useRoutes() {
+	useRoutes(): void {
 		this.app.use('/users', this.userController.router);
 	}
 
-	useExceptionFilters() {
+	useExceptionFilters(): void {
 		this.app.use(this.exceptionFilter.catch.bind(this.exceptionFilter));
 	}
 
-	public async init() {
+	public async init(): Promise<void> {
 		// 1) middlewares, 2) routes, 3)exception filters
 		this.useRoutes();
 		this.useExceptionFilters();
@@ -39,5 +39,3 @@ export class App {
 		this.logger.log(`Server is running at http://localhost:${this.port}`);
 	}
 }
-
-

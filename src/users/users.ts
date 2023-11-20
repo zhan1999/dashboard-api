@@ -2,7 +2,7 @@ import express from 'express';
 
 const userRouter = express.Router();
 
-userRouter.use((req, res, next)=>{
+userRouter.use((req, res, next) => {
 	console.log('Users processor');
 	next();
 });
@@ -15,7 +15,4 @@ userRouter.post('/register', (req, res) => {
 	res.send('register');
 });
 
-export {userRouter};
-
-
-
+export { userRouter };
