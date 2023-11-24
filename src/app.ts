@@ -1,11 +1,10 @@
 import express, { Express } from 'express';
 import { Server } from 'http';
-import { LoggerService } from './logger/logger.service.js';
-import { UserController } from './users/users.controller.js';
-import { ExceptionFilter } from './errors/exception.filter.js';
-import { ILogger } from './logger/logger.interface.js';
+import { UserController } from './users/users.controller';
+import { ExceptionFilter } from './errors/exception.filter';
+import { ILogger } from './logger/logger.interface';
 import { inject, injectable } from 'inversify';
-import { TYPES } from './types.js';
+import { TYPES } from './types';
 import 'reflect-metadata';
 
 @injectable()
