@@ -34,3 +34,5 @@ function bootstrap(): IBootstrapReturn {
 }
 
 export const { app, appContainer } = bootstrap();
+
+// chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/{{YOUR_KEY}}

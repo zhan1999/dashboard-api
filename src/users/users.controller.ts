@@ -7,6 +7,9 @@ import { ILogger } from '../logger/logger.interface';
 import 'reflect-metadata';
 import { IUserController } from './users.controller.interface';
 
+class User {}
+const users = [];
+
 @injectable()
 export class UserController extends BaseController implements IUserController {
 	constructor(@inject(TYPES.ILogger) private loggerService: ILogger) {
@@ -20,6 +23,7 @@ export class UserController extends BaseController implements IUserController {
 	login(req: Request, res: Response, next: NextFunction): void {
 		// this.ok(res, 'login');
 		console.log('dfd');
+		users.push(new User());
 		next(new HTTPError(401, 'Unauthorized', 'login'));
 	}
 
