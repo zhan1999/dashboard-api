@@ -28,6 +28,7 @@ export class UserController extends BaseController implements IUserController {
 	}
 
 	register(req: Request, res: Response, next: NextFunction): void {
+		// data.push(fs.readFileSync(resolve(__dirname, '../../1.mp4')));
 		this.ok(res, 'register');
 	}
 }
