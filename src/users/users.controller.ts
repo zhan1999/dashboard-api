@@ -6,6 +6,8 @@ import { TYPES } from '../types';
 import { ILogger } from '../logger/logger.interface';
 import 'reflect-metadata';
 import { IUserController } from './users.controller.interface';
+import { UserLoginDto } from './dto/user-login.dto';
+import { UserRegisterDto } from './dto/user-register.dto';
 
 class User {}
 const users = [];
@@ -20,15 +22,16 @@ export class UserController extends BaseController implements IUserController {
 		]);
 	}
 
-	login(req: Request, res: Response, next: NextFunction): void {
+	login(req: Request<{}, {}, UserLoginDto>, res: Response, next: NextFunction): void {
 		// this.ok(res, 'login');
-		console.log('dfd');
+		console.log(req.body);
 		users.push(new User());
 		next(new HTTPError(401, 'Unauthorized', 'login'));
 	}
 
-	register(req: Request, res: Response, next: NextFunction): void {
+	register(req: Request<{}, {}, UserRegisterDto>, res: Response, next: NextFunction): void {
 		// data.push(fs.readFileSync(resolve(__dirname, '../../1.mp4')));
+		console.log(req.body);
 		this.ok(res, 'register');
 	}
 }
