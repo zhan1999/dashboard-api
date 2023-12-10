@@ -8,9 +8,7 @@ import 'reflect-metadata';
 import { IUserController } from './users.controller.interface';
 import { UserLoginDto } from './dto/user-login.dto';
 import { UserRegisterDto } from './dto/user-register.dto';
-
-class User {}
-const users = [];
+import { User } from './user.entity';
 
 @injectable()
 export class UserController extends BaseController implements IUserController {
@@ -24,14 +22,17 @@ export class UserController extends BaseController implements IUserController {
 
 	login(req: Request<{}, {}, UserLoginDto>, res: Response, next: NextFunction): void {
 		// this.ok(res, 'login');
-		console.log(req.body);
-		users.push(new User());
 		next(new HTTPError(401, 'Unauthorized', 'login'));
 	}
 
-	register(req: Request<{}, {}, UserRegisterDto>, res: Response, next: NextFunction): void {
+	async register(
+		{ body }: Request<{}, {}, UserRegisterDto>,
+		res: Response,
+		next: NextFunction,
+	): Promise<void> {
 		// data.push(fs.readFileSync(resolve(__dirname, '../../1.mp4')));
-		console.log(req.body);
-		this.ok(res, 'register');
+		const newUser = new User(body.email, body.name);
+		await newUser.setPassword(body.password);
+		this.ok(res, newUser);
 	}
 }
